@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap');
+@import-normalize;
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Jost";
+}
+
+html {
+  color-scheme: dark light;
+}
+
+body {
+  min-height: 100vh;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+input, textarea, button, select {
+  font-family: inherit;
+}
+
+li {
+  list-style-type: none;
+}
+
+p {
+  /* font-size: 1.125rem; */
+  line-height: 1.75rem;
+  padding: 1rem 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 1.25rem 0;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.padding-wrapper {
+  padding: 100px;
+}
+
+.align-left {
+  margin-right: auto;
+}
+
+.align-right {
+  margin-left: auto;
+}
+
+.barista {
+  width: 49%;
+}
+
+.black-bg {
+  background-image: linear-gradient(to right, black, rgb(19, 18, 18), #b97046);
+  box-shadow: 0 0 10px #b97046;
+}
+
