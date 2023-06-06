@@ -13,26 +13,6 @@ import Carousel from './carousel/Carousel'
 function Main() {
   return (
     <main>
-      {/* <StyledSection className='padding-wrapper'>
-        <StyledStrenghtsTile>
-          <StyledBgImg src={beans_bg}/>
-          <h2>
-            Best coffee beans
-          </h2>
-        </StyledStrenghtsTile>
-        <StyledStrenghtsTile >
-          <StyledBgImg src={coffeeCup_bg}/>
-          <h2>
-            Take a snack
-          </h2>
-        </StyledStrenghtsTile>
-        <StyledStrenghtsTile>
-          <StyledBgImg src={aeropress_bg}/>
-          <h2>
-            Aeropress
-          </h2>
-        </StyledStrenghtsTile>
-      </StyledSection> */}
       <Carousel />
       <StyledSection className='black-bg'>
         <div className='barista padding-wrapper'>
