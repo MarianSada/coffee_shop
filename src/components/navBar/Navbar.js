@@ -13,11 +13,11 @@ export default function Navbar() {
         <Hamburger color="#B97046" onToggle={() => setOpen(!open)}/>
       </StyledHamburger>
       <StyledNavbar open={open}>
-        <CustomLink to='/'>Home</CustomLink>
-        <CustomLink to='/Menu'>Menu</CustomLink>
-        <CustomLink to='/reservation'>Reservation</CustomLink>
-        <CustomLink to='/Shop'>Shop</CustomLink>
-        <CustomLink to='/contact'>Contact</CustomLink>
+        <CustomLink to='/coffee_shop/'>Home</CustomLink>
+        <CustomLink to='/coffee_shop/Menu'>Menu</CustomLink>
+        <CustomLink to='/coffee_shop/reservation'>Reservation</CustomLink>
+        <CustomLink to='/coffee_shop/Shop'>Shop</CustomLink>
+        <CustomLink to='/coffee_shop/contact'>Contact</CustomLink>
       </StyledNavbar>
     </nav>
   )
