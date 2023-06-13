@@ -1,26 +1,24 @@
 import React from 'react'
 import { FaMobileAlt, FaMapMarkerAlt } from 'react-icons/fa'
-import Logo from '../Logo'
-import Subscribe from '../Subscribe'
+import Logo from '../logo/Logo'
+import Subscribe from '../subscribe/Subscribe'
 import coffeeOnTable from '../../assets/coffee_on_table.jpg'
 import NavBar from '../navBar/Navbar'
-import { StyledBgImg } from '../BgImg.styles'
 import Btn from '../Btn'
 import { ThemeProvider } from '@mui/material/styles'
 import { customTheme } from '../../styles/Themes'
-import { StyledFooter, StyledFooterLine, StyledFooterElement } from './Footer.styles'
+import { StyledFooter, StyledFooterRow, StyledFooterElement } from './Footer.styles'
 import StyledSocialBar from '../socialMedia/SocialMedia'
 
 function Footer() {
 
   return (
     <>
-    <StyledFooter>
-      <StyledBgImg src={coffeeOnTable} />
-      <StyledFooterLine>
+    <StyledFooter bgimg={coffeeOnTable}>
+      <StyledFooterRow>
         <StyledFooterElement>
           <FaMobileAlt />
-          <p>PHONE: 0722332233</p>
+          PHONE: 0722332233
         </StyledFooterElement>
         <StyledFooterElement>
           <FaMapMarkerAlt />
@@ -29,17 +27,15 @@ function Footer() {
         <StyledFooterElement>
           <Subscribe />
         </StyledFooterElement>
-      </StyledFooterLine>
-      <StyledFooterLine>
+      </StyledFooterRow>
+      <StyledFooterRow display={true}>
         <Logo />
-      </StyledFooterLine>
-      <StyledFooterLine>
-        <div>
-          <p>Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam quis quam.</p>
-        </div>
+      </StyledFooterRow>
+      <StyledFooterRow display={true}>
+          <p >Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam quis quam.</p>
         <StyledSocialBar />
-      </StyledFooterLine>
-      <StyledFooterLine>
+      </StyledFooterRow>
+      <StyledFooterRow>
         <NavBar/>
         <ThemeProvider theme={customTheme}>
           <Btn 
@@ -52,7 +48,7 @@ function Footer() {
             GO TOP
           </Btn>
         </ThemeProvider>   
-      </StyledFooterLine>
+      </StyledFooterRow>
     </StyledFooter>
     </>
   )

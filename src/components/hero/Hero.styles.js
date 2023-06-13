@@ -1,5 +1,6 @@
 import { styled } from 'styled-components'
 import hero_background from '../../assets/wide_iced_coffee.jpg'
+import { maxDevices } from '../breakpoints/Breakpoints'
 
 export const StyledHero = styled.div`
   background: 
@@ -10,7 +11,10 @@ export const StyledHero = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 5rem 5rem;
-  min-height: 100vh;
+  padding: 5vh 5vw;
+  min-height: 80vh;
   text-align: center;
+  @media only screen and (${maxDevices.lg}) {
+    min-height: 50vh;
+  }
 `

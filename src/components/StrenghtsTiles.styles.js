@@ -1,11 +1,24 @@
-import { styled } from 'styled-components'
+import { keyframes, styled } from 'styled-components'
+
+const animate = keyframes`
+  0% { 
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`
 
 export const StyledStrenghtsTile = styled.div`
-  min-width: var(--strenghtsTile-size);
-  background: 
+  min-width: calc((var(--carouselSliderWrapper-width) 
+            - (var(--carouselRow-gap)
+            * (${props => props.slidesshown + 1}) ))
+            / (${props => props.slidesshown}));
+  background-image: 
     linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
   background-size: cover;
+  margin: 0 auto;
   aspect-ratio: 16 / 9;
   padding: 0 1vw;
   box-shadow: 
@@ -13,7 +26,7 @@ export const StyledStrenghtsTile = styled.div`
     -1px -1px 3px rgba(185, 112, 70, 0.5);
   position: relative;
   overflow: hidden;
-  transform: translateX(${props => props.slide + "vw"});
-  transition: 2s ease-in-out;
-
+  animation-name: ${animate};
+  animation-duration: 2s;
 `
+

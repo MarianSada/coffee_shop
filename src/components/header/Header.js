@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Navbar from '../navBar/Navbar'
-import Logo from '../Logo'
+import Logo from '../logo/Logo'
 import { StyledHeader } from './Header.styles'
 import { Link } from 'react-router-dom'
 import LoginAndProfileBtn from '../loginAndProfileBtn/LoginAndProfileBtn'

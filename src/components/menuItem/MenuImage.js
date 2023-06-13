@@ -1,11 +1,8 @@
 import React, { useContext } from 'react'
-import { styled } from 'styled-components'
 import { MenuItems } from './MenuItemsContext'
+import { StyledMenuImage } from './MenuItem.styles'
 
-const StyledMenuImage = styled.img`
-  height: 100%;
-  object-fit: cover;
-`
+
 
 function MenuImage() {
   const sharedImages = useContext(MenuItems)

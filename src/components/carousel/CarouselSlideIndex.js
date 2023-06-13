@@ -20,91 +20,73 @@ const slides = [
     text: "Take a snack",
   },
   {
-    index: 3,
+    index: 2,
     background: aeropress_bg,
     text: "Aeropress",
   },
   {
-    index: 4,
+    index: 3,
     background: beans_bg,
     text: "Best coffee beans",
+  },
+  {
+    index: 4,
+    background: aeropress_bg,
+    text: "Aeropress",
   },
   {
     index: 5,
-    background: beans_bg,
-    text: "Best coffee beans",
-  },
-  {
-    index: 6,
     background: coffeeCup_bg,
     text: "Take a snack",
   },
   {
-    index: 7,
+    index: 6,
     background: aeropress_bg,
     text: "Aeropress",
   },
   {
-    index: 8,
+    index: 7,
     background: beans_bg,
     text: "Best coffee beans",
   }
 ]
 
-const slideSize = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--strenghtsTile-size'));
-const slideGap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--strenghtsTile-gap'));
-const slidesShown = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--slides-shown'));
-const initialOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--initial-offset'));
-const slideTranslation = slideSize + slideGap;
-const sliderLength = slides.length;
+function CarouselSlideIndex({slidesshown}) {
 
-function Carousel() {
-
-  const [slide, setSlide] = useState(initialOffset)
-
-  useEffect(() => {
-    const handleResize = () => {setSlide(initialOffset)};
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };  
-  },[slide])
+  const [currentSlide, setCurrentSlide] = useState(0)
 
   useEffect(() => {
 
     const slideDuration = setTimeout(() => {
-      if(((sliderLength - slidesShown) * (-slideTranslation) + initialOffset) === slide){
-        setSlide(initialOffset)
+      if(currentSlide === slides.length){
+        setCurrentSlide(1)
       } else {
-        setSlide((prev) => prev - slideTranslation)
+        setCurrentSlide((prev) => prev + 1)
       }
    }, 4000)
    return () => clearTimeout(slideDuration);
   })
 
   function handleClick(direction) {
-    const slideDirection = direction === "next" ? -slideTranslation : slideTranslation;
+    const slideDirection = direction === "next" ? 1 : -1;
 
-    setSlide(prev => {
-      let newPosition = (prev + slideDirection)  % (sliderLength * -slideTranslation);
+    setCurrentSlide(prev => {
+      let newPosition = prev + slideDirection;
 
-      return newPosition > 0 
-        ? ((sliderLength - slidesShown) * -slideTranslation) 
-        : (newPosition < ((sliderLength - slidesShown) * -slideTranslation) 
-        ? initialOffset 
-        : newPosition)
+      return newPosition
     })
   }
 
-    return (
+  const filteredSlide = slides.filter((_, index) => index + 1 >= currentSlide && index + 1 < currentSlide + slidesshown) 
+
+  return (
       <>
       <CarouselWrapper>
         <SliderWrapper >
           {
-            slides.map(item => {
+            filteredSlide.map(item => {
               return (
-              <StyledStrenghtsTile slide={slide}  key={item.index} >
+              <StyledStrenghtsTile slidesshown={slidesshown} slide={currentSlide} key={item.index} >
                 <StyledBgImg src={item.background} />
                 <h2>
                   {item.text}
@@ -116,12 +98,14 @@ function Carousel() {
         <RoundArrowBtn 
           onClick={() => handleClick("next")}
           style={{right: "2%"}}
+          disabled={currentSlide === slides.length}
         >
           <FaArrowCircleRight/>
         </RoundArrowBtn>
         <RoundArrowBtn 
           onClick={() => handleClick("prev")}
           style={{left: "2%"}}
+          disabled={currentSlide === 1}
         >
           <FaArrowCircleLeft/>
         </RoundArrowBtn>
@@ -130,4 +114,4 @@ function Carousel() {
     );
 }
 
-export default Carousel
+export default CarouselSlideIndex

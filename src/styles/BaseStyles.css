@@ -65,12 +65,4 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: auto;
 }
 
-.barista {
-  width: 49%;
-}
-
-.black-bg {
-  background-image: linear-gradient(to right, black, rgb(19, 18, 18), #b97046);
-  box-shadow: 0 0 10px #b97046;
-}
 
