@@ -8,8 +8,8 @@
   font-family: "Jost";
 }
 
-html {
-  color-scheme: dark;
+:root {
+  color-scheme: only dark;
 }
 
 img, picture, svg, video {
