@@ -11,10 +11,10 @@ export const StyledHero = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 5vh 5vw;
-  min-height: 80vh;
+  padding: 50px 50px;
+  min-height: 80%;
   text-align: center;
   @media only screen and (${maxDevices.lg}) {
-    min-height: 50vh;
+    min-height: 80%;
   }
 `
