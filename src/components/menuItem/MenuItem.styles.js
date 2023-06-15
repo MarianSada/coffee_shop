@@ -1,15 +1,18 @@
 import { styled } from 'styled-components'
-
+import { minDevices } from '../breakpoints/Breakpoints'
 
 export const MenuItemWrapper = styled.div`
   display: flex;
-  width: 100%;
+  width: 80%;
   gap: 20px;
   justify-content: space-between;
   align-items: center;
   border: 1px solid grey;
   position: relative;
   padding: 20px 20px 20px 60px;
+  @media only screen and (${minDevices.lg}) {
+    width: 45%;
+  }
 `
 
 export const StyledImageContainer = styled.div`

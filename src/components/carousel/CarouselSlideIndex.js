@@ -100,14 +100,14 @@ function CarouselSlideIndex({slidesshown}) {
           style={{right: "2%"}}
           disabled={currentSlide === slides.length}
         >
-          <FaArrowCircleRight/>
+          <FaArrowCircleRight color="white"/>
         </RoundArrowBtn>
         <RoundArrowBtn 
           onClick={() => handleClick("prev")}
           style={{left: "2%"}}
           disabled={currentSlide === 1}
         >
-          <FaArrowCircleLeft/>
+          <FaArrowCircleLeft color="white"/>
         </RoundArrowBtn>
       </CarouselWrapper>
       </>

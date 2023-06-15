@@ -3,7 +3,6 @@ import { minDevices } from '../breakpoints/Breakpoints'
 
 export const StyledNavbar = styled.ul`
     display: flex;
-    -webkit-display: flex;
     flex-direction: column;
     -webkit-flex-direction: column;
     gap: 20px;
@@ -19,12 +18,10 @@ export const StyledNavbar = styled.ul`
     transition: transform 0.3s ease-in-out;
 
   @media only screen and (${minDevices.lg}) {
-    display: flex;
-    -webkit-display: flex;
-
     flex-direction: row;
     -webkit-flex-direction: row;
     position: relative;
     transform: none;
+    background-color: inherit;
   }
 `

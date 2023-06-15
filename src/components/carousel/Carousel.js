@@ -123,7 +123,7 @@ function Carousel() {
           onClick={() => handleClick("prev")}
           style={{left: "2%"}}
         >
-          <FaArrowCircleLeft/>
+          <FaArrowCircleLeft stroke="#fff"/>
         </RoundArrowBtn>
       </CarouselWrapper>
       </>

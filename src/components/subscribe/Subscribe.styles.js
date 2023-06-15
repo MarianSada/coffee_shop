@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import { maxDevices } from '../breakpoints/Breakpoints'
+import { minDevices } from '../breakpoints/Breakpoints'
 
 export const Input = styled.input`
   display: flex;
@@ -23,9 +23,13 @@ export const Input = styled.input`
 
 export const StyledSubscriptionForm = styled.form`
 display: flex;
+flex-direction: column;
+-webkit-flex-direction: column;
 gap: 20px;
 align-items: center;
-@media only screen and (${maxDevices.lg}) {
-  flex-direction: column;
+-webkit-align-items: center;
+@media only screen and (${minDevices.lg}) {
+  flex-direction: row;
+  -webkit-flex-direction: row;
 }
 `

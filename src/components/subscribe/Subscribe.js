@@ -7,7 +7,7 @@ import { Input, StyledSubscriptionForm } from './Subscribe.styles'
 function Subscribe() {
 
   const [email, setEmail] = useState('')
-  const [isValid, setIsValid] = useState(false)
+  const [isValid, setIsValid] = useState("false")
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +30,7 @@ function Subscribe() {
         value={email}
         placeholder='Enter your email' 
         type='email'
-        validation={isValid}
+        validation={isValid.toString()}
       />
       <ThemeProvider theme={customTheme}>
         <Btn 

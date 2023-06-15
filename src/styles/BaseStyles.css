@@ -9,7 +9,8 @@
 }
 
 :root {
-  color-scheme: only dark;
+  background-color: #121212;
+  color: #fff;
 }
 
 img, picture, svg, video {
