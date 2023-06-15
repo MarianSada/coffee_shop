@@ -15,7 +15,9 @@ export const Input = styled.input`
     opacity: 1;
   }
   &:focus {
-    outline-color: ${props => props.validation ? "green" : "red"};
+    outline: none;
+    border: 1px solid ${props => props.validation ? "green" : "red"};
+    border-radius: 5px;
   }
 `
 
