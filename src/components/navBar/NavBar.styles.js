@@ -1,14 +1,6 @@
 import { styled } from 'styled-components'
 import { maxDevices } from '../breakpoints/Breakpoints'
 
-export const maxDevices = {
-  xs: `(max-width: 320px)`,
-  sm: `(max-width: 640px)`,
-  md: `(max-width: 768px)`,
-  lg: `(max-device-width: 1024px)`,
-  xl: `(max-width: 1280px)`,
-}
-
 export const StyledNavbar = styled.ul`
   display: flex;
 
