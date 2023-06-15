@@ -28,10 +28,10 @@ function Footer() {
           <Subscribe />
         </StyledFooterElement>
       </StyledFooterRow>
-      <StyledFooterRow display={true}>
+      <StyledFooterRow display="true">
         <Logo />
       </StyledFooterRow>
-      <StyledFooterRow display={true}>
+      <StyledFooterRow display="true">
           <p >Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam quis quam.</p>
         <StyledSocialBar />
       </StyledFooterRow>

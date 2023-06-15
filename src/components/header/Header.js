@@ -10,7 +10,6 @@ import Btn from '../Btn'
 function Header() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const isLoggedIn = true;
 
   return (
     <StyledHeader>

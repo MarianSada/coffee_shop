@@ -6,11 +6,9 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 5vw;
+  padding: 0 50px;
   background-color: #050706;
   @media only screen and (${maxDevices.lg}) {
-    padding: 0 2vw;
+    padding: 0 20px;
   }
 `

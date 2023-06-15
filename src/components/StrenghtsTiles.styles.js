@@ -20,7 +20,7 @@ export const StyledStrenghtsTile = styled.div`
   background-size: cover;
   margin: 0 auto;
   aspect-ratio: 16 / 9;
-  padding: 0 1vw;
+  padding: 0 10px;
   box-shadow: 
     1px 1px 3px rgba(185, 112, 70, 0.5), 
     -1px -1px 3px rgba(185, 112, 70, 0.5);

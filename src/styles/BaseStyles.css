@@ -9,11 +9,7 @@
 }
 
 html {
-  color-scheme: dark light;
-}
-
-body {
-  min-height: 100vh;
+  color-scheme: dark;
 }
 
 img, picture, svg, video {
@@ -35,7 +31,6 @@ li {
 }
 
 p {
-  /* font-size: 1.125rem; */
   line-height: 1.75rem;
   padding: 1rem 0;
 }

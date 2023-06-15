@@ -12,9 +12,6 @@ function LoginAndProfileBtn({isLoggedIn}) {
     btnText: `${isLoggedIn ? 'My Profile' : 'Login'}`,
   }
 
-  console.log(isLoggedIn)
-  console.log(loginStatus.conditionalPath)
-
   return (
     <ThemeProvider theme={customTheme}>
       <Link to={loginStatus.conditionalPath}>

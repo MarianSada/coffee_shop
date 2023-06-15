@@ -1,26 +1,6 @@
 :root {
-  --strenghtsTile-size: 75vw;
-  --carouselSliderWrapper-width: 80vw;
-  --carouselRow-gap: 1vw;
-  /* --strenghtsTile-gap: 5vw; */
-  /* --slides-shown: 1; */
-  /* --initial-offset: 1.5; */
+  --strenghtsTile-size: 75%;
+  --carouselSliderWrapper-width: 80%;
+  --carouselRow-gap: 1%;
 }
-
-/* @media (min-width: 768px) {
-  :root {
-    --strenghtsTile-size: 37vw;
-    --strenghtsTile-gap: 3vw;
-    --slides-shown: 2;
-    --initial-offset: 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --strenghtsTile-size: 24vw;
-    --slides-shown: 3;
-    --initial-offset: 0;
-  }
-} */
 

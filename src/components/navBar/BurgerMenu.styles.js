@@ -1,7 +1,7 @@
 import { styled } from 'styled-components'
 import { minDevices } from '../breakpoints/Breakpoints'
 
-const StyledBurgerNav = styled.ul`
+export const StyledBurgerNav = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -17,6 +17,5 @@ const StyledBurgerNav = styled.ul`
   transition: transform 0.5s ease-in-out;
   @media only screen and (${minDevices.lg}) {
     display: none;
-    
   }
 `

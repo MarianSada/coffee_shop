@@ -4,10 +4,9 @@ export const SliderWrapper = styled.div`
   width: var(--carouselSliderWrapper-width);
   overflow: hidden;
   display: flex;
-  /* gap: var(--strenghtsTile-gap); */
   gap: var(--carouselRow-gap);
   margin: 100px auto;
-  padding: 1vw;
+  padding: 20px;
 `
 
 export const CarouselWrapper = styled.div`

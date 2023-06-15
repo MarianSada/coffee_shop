@@ -17,7 +17,7 @@ export const StyledFooter = styled.footer`
   background-position: center;
   background-size: cover;
   @media only screen and (${maxDevices.lg}) {
-    padding: 5vh 5vw;
+    padding: 20px;
   }
 `
 
@@ -51,7 +51,5 @@ export const StyledFooterElement = styled.div`
   align-items: center;
   @media only screen and (${maxDevices.lg}) {
     flex-direction: column;
-    /* gap: 20px; */
-
   }
 `

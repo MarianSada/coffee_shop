@@ -11,6 +11,6 @@ export const StyledSection = styled.section`
   gap: 20px;
   padding: 100px;
   @media only screen and (${maxDevices.lg}) {
-    padding: 5vh 5vw;
+    padding: 50px 20px;
   }
 `

@@ -1,18 +1,18 @@
 import React, { useContext } from 'react'
-import ImageContainer from './ImageContainer'
+// import ImageContainer from './ImageContainer'
 import { MenuItems } from './MenuItemsContext'
-import { MenuItemWrapper } from './MenuItem.styles'
-
+import { MenuItemWrapper, StyledImageContainer, StyledMenuImage } from './MenuItem.styles'
 
 function MenuItem() {
   const products = useContext(MenuItems)
 
   if(products) {
     return (
-      
        products.map((item) => 
       <MenuItemWrapper key={item.name}>
-        <ImageContainer />
+        <StyledImageContainer>
+          <StyledMenuImage src={item.image}/>
+        </StyledImageContainer>        
         <p>
           {item.name}
         </p>
