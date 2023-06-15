@@ -1,12 +1,11 @@
 import { styled } from 'styled-components'
-import { maxDevices } from '../breakpoints/Breakpoints'
+import { minDevices } from '../breakpoints/Breakpoints'
 
 export const StyledNavbar = styled.ul`
-  display: flex;
-
-  @media only screen and (${maxDevices.lg}) {
     display: flex;
+    -webkit-display: flex;
     flex-direction: column;
+    -webkit-flex-direction: column;
     gap: 20px;
     font-size: 1.25rem;
     background-color: black;
@@ -18,5 +17,14 @@ export const StyledNavbar = styled.ul`
     z-index: 2;
     transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
     transition: transform 0.3s ease-in-out;
+
+  @media only screen and (${minDevices.lg}) {
+    display: flex;
+    -webkit-display: flex;
+
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    position: relative;
+    transform: none;
   }
 `
