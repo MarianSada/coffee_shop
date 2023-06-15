@@ -6,6 +6,7 @@ export const StyledNavbar = styled.ul`
 
   @media only screen and (${maxDevices.lg}) {
     display: flex;
+    -webkit-display: flex;
     flex-direction: column;
     -webkit-flex-direction: column;
     gap: 20px;
