@@ -7,8 +7,8 @@ export const StyledMenuSection = styled(StyledSection)`
     display: flex;
     flex-direction: column;
     -webkit-flex-direction: column;
-    gap: 30px 100px;
-    -webkit-gap: 30px 100px;
+    /* gap: 30px 100px; */
+    margin: 15px 50px;
     padding: 0 0 0 40px;
 
     @media only screen and (${minDevices.lg}) {

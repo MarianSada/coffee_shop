@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import { maxDevices } from './breakpoints/Breakpoints'
+import { minDevices } from './breakpoints/Breakpoints'
 
 export const StyledSection = styled.section`
   position: relative;
@@ -8,9 +8,10 @@ export const StyledSection = styled.section`
   text-align: center;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px;
-  padding: 100px;
-  @media only screen and (${maxDevices.lg}) {
-    padding: 50px 20px;
+  padding: 50px 20px;
+  /* gap: 20px; */
+  margin: 20px;
+  @media only screen and (${minDevices.lg}) {
+    padding: 100px;
   }
 `
