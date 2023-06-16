@@ -32,7 +32,8 @@ export const StyledFooterRow = styled.div`
     align-items: center;
     -webkit-align-items: center;
     text-align: justify;
-    gap: 20px;
+    /* gap: 20px; */
+    margin: 10px;
     display: ${props => props.display ? "none" : "flex"};
     &:last-of-type {
       border-top: 1px solid #B97046;
@@ -41,18 +42,13 @@ export const StyledFooterRow = styled.div`
       -webkit-flex-direction: row;
       min-width: 100%;
     }
-    & input {
-      min-width: 100%;
-    }
   @media only screen and (${minDevices.lg}) {
     display: flex;
     flex-direction: row;
     -webkit-flex-direction: row;
     width: 100%; 
   }
-  & input {
-      min-width: 300px;
-    }
+
 `
 
 export const StyledFooterElement = styled.div`

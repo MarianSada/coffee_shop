@@ -8,7 +8,6 @@ export const StyledHeader = styled.header`
   align-items: center;
   -webkit-align-items: center;
   /* gap: 20px; */
-  margin: 10px;
   padding: 0 20px;
   background-color: #050706;
   @media only screen and (${minDevices.lg}) {
