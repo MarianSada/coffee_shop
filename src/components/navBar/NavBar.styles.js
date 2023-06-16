@@ -7,7 +7,6 @@ export const StyledNavbar = styled.ul`
     -webkit-flex-direction: column;
     font-size: 1.25rem;
     background-color: black;
-    height: 100%;
     padding: 20px;
     position: fixed;
     right: 0;
@@ -29,7 +28,7 @@ export const StyledNavbar = styled.ul`
       margin-left: 20px;
       margin-top: 0;
       &:first-child {
-        margin-left: 0;
+        margin-left: -40px;
       }
     }
   }

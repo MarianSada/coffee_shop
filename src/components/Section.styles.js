@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import { minDevices } from './breakpoints/Breakpoints'
 
 export const StyledSection = styled.section`
   position: relative;
@@ -12,4 +13,7 @@ export const StyledSection = styled.section`
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   padding: 50px 20px;
+  @media only screen and (${minDevices.lg}) {
+    padding: 50px 100px;
+  }
 `

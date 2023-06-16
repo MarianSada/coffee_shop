@@ -35,18 +35,7 @@ function Footer() {
         <p >Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam quis quam.</p>
         <StyledSocialBar />
       </StyledFooterRow>
-      <StyledFooterRow>
-      <ThemeProvider theme={customTheme}>
-          <Btn 
-            color="primary" 
-            size="large" 
-            variant="outlined" 
-            type='button'
-            onClick={() => window.scrollTo({top: 0, left: 0, behavior: 'smooth' })}
-          >
-            GO TOP
-          </Btn>
-        </ThemeProvider>   
+      <StyledFooterRow> 
         <NavBar/>
         <ThemeProvider theme={customTheme}>
           <Btn 
