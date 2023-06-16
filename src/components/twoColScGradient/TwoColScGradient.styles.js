@@ -1,11 +1,15 @@
-import { StyledSection } from '../Section.styles'
 import { styled } from 'styled-components'
 import { minDevices } from '../breakpoints/Breakpoints'
 
-export const StyledTwoColScGradient = styled(StyledSection)`
+export const StyledTwoColScGradient = styled.section`
   display: flex;
   flex-direction: column;
   -webkit-flex-direction: column;
+  align-items: center;
+  -webkit-align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
   background-image: linear-gradient(to bottom, black, rgb(19, 18, 18), #b97046, #b97046, #b97046);
   box-shadow: 0 0 10px #b97046;
   padding: 0;

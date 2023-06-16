@@ -5,6 +5,7 @@ export const Input = styled.input`
   display: flex;
   min-width: 100%;
   padding: 10px;
+  margin-bottom: 10px;
   margin-left: auto;
   border: none;
   border-bottom: 1px solid #fff;
@@ -21,6 +22,8 @@ export const Input = styled.input`
   }
   @media only screen and (${minDevices.lg}) {
   min-width: 300px;
+  margin-right: 10px;
+  margin-bottom: 0;
 }
 `
 
@@ -28,8 +31,6 @@ export const StyledSubscriptionForm = styled.form`
 display: flex;
 flex-direction: column;
 -webkit-flex-direction: column;
-/* gap: 20px; */
-margin: 10px;
 align-items: center;
 -webkit-align-items: center;
 @media only screen and (${minDevices.lg}) {

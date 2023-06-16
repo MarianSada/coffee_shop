@@ -5,7 +5,6 @@ export const StyledNavbar = styled.ul`
     display: flex;
     flex-direction: column;
     -webkit-flex-direction: column;
-    gap: 20px;
     font-size: 1.25rem;
     background-color: black;
     height: 100%;
@@ -16,6 +15,9 @@ export const StyledNavbar = styled.ul`
     z-index: 2;
     transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
     transition: transform 0.3s ease-in-out;
+    li {
+     margin-top: 20px;
+    }
 
   @media only screen and (${minDevices.lg}) {
     flex-direction: row;
@@ -23,5 +25,12 @@ export const StyledNavbar = styled.ul`
     position: relative;
     transform: none;
     background-color: inherit;
+    li {
+      margin-left: 20px;
+      margin-top: 0;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
   }
 `

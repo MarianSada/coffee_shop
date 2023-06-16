@@ -7,9 +7,9 @@ export const StyledFooter = styled.footer`
   -webkit-flex-direction: column;
   position: relative;
   overflow: hidden;
-  gap: 30px;
-  align-items: center;
-  -webkit-align-items: center;
+  /* gap: 30px; */
+  /* align-items: center;
+  -webkit-align-items: center; */
   background: 
     linear-gradient(to top, rgba(0,0,0, 0.9), transparent),
     linear-gradient(to bottom, rgba(0,0,0, 0.9), transparent),
@@ -17,10 +17,7 @@ export const StyledFooter = styled.footer`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 20px;
-  @media only screen and (${minDevices.lg}) {
-    padding: 50px 100px;
-  }
+  padding: 50px 20px;
 `
 
 export const StyledFooterRow = styled.div`
@@ -31,9 +28,7 @@ export const StyledFooterRow = styled.div`
     -webkit-justify-content: space-between;
     align-items: center;
     -webkit-align-items: center;
-    text-align: justify;
-    /* gap: 20px; */
-    margin: 10px;
+    margin: 10px 0;
     display: ${props => props.display ? "none" : "flex"};
     &:last-of-type {
       border-top: 1px solid #B97046;
@@ -55,7 +50,7 @@ export const StyledFooterElement = styled.div`
   display: flex;
   flex-direction: column;
   -webkit-flex-direction: column;
-  gap: 20px;
+  
   align-items: center;
   -webkit-align-items: center;
   @media only screen and (${minDevices.lg}) {

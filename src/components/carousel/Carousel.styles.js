@@ -1,19 +1,19 @@
 import { styled } from "styled-components"
 
-export const SliderWrapper = styled.div`
-  width: var(--carouselSliderWrapper-width);
-  overflow: hidden;
-  display: flex;
-  gap: var(--carouselRow-gap);
-  margin: 100px auto;
-  padding: 20px;
-`
-
 export const CarouselWrapper = styled.div`
   width: 100%;
   overflow: hidden;
   position: relative;
-  margin: 0 auto;
+`
+
+export const SliderWrapper = styled.div`
+  width: var(--carouselSliderWrapper-width);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  margin: 100px auto;
+  padding: 20px;
 `
 
 export const RoundArrowBtn = styled.button`

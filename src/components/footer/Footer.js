@@ -18,11 +18,11 @@ function Footer() {
       <StyledFooterRow>
         <StyledFooterElement>
           <FaMobileAlt />
-          PHONE: 0722332233
+          <p>PHONE: 0722332233</p>
         </StyledFooterElement>
         <StyledFooterElement>
           <FaMapMarkerAlt />
-          ADDRESS: Carrefour
+          <p>ADDRESS: Carrefour</p>
         </StyledFooterElement>
         <StyledFooterElement>
           <Subscribe />
@@ -32,10 +32,21 @@ function Footer() {
         <Logo />
       </StyledFooterRow>
       <StyledFooterRow display="true">
-          <p >Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam quis quam.</p>
+        <p >Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam quis quam.</p>
         <StyledSocialBar />
       </StyledFooterRow>
       <StyledFooterRow>
+      <ThemeProvider theme={customTheme}>
+          <Btn 
+            color="primary" 
+            size="large" 
+            variant="outlined" 
+            type='button'
+            onClick={() => window.scrollTo({top: 0, left: 0, behavior: 'smooth' })}
+          >
+            GO TOP
+          </Btn>
+        </ThemeProvider>   
         <NavBar/>
         <ThemeProvider theme={customTheme}>
           <Btn 

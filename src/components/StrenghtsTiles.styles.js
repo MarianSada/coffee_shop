@@ -18,7 +18,6 @@ export const StyledStrenghtsTile = styled.div`
     linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
   background-size: cover;
-  margin: 0 auto;
   aspect-ratio: 16 / 9;
   padding: 0 10px;
   box-shadow: 
@@ -28,5 +27,9 @@ export const StyledStrenghtsTile = styled.div`
   overflow: hidden;
   animation-name: ${animate};
   animation-duration: 2s;
+  margin-left: var(--carouselRow-gap);
+  &:first-child {
+    margin-left: 0;
+  }
 `
 

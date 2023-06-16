@@ -40,25 +40,5 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1.25rem 0;
 }
 
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-row {
-  display: flex;
-}
-
-.padding-wrapper {
-  padding: 100px;
-}
-
-.align-left {
-  margin-right: auto;
-}
-
-.align-right {
-  margin-left: auto;
-}
 
 
