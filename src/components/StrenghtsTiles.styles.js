@@ -1,5 +1,4 @@
 import { keyframes, styled } from 'styled-components'
-import { minDevices } from './breakpoints/Breakpoints'
 
 const animate = keyframes`
   0% { 
@@ -15,10 +14,6 @@ export const StyledStrenghtsTile = styled.div`
             - (var(--carouselRow-gap)
             * (${props => props.slidesshown + 1}) ))
             / (${props => props.slidesshown}));
-  background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
-  background-size: cover;
   aspect-ratio: 16 / 9;
   padding: 0 10px;
   box-shadow: 
@@ -28,6 +23,7 @@ export const StyledStrenghtsTile = styled.div`
   overflow: hidden;
   animation-name: ${animate};
   animation-duration: 2s;
+  z-index: 1;
   margin-left: var(--carouselRow-gap);
   &:first-child {
     margin-left: 0;

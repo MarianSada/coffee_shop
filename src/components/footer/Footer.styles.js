@@ -7,13 +7,13 @@ export const StyledFooter = styled.footer`
   -webkit-flex-direction: column;
   position: relative;
   overflow: hidden;
-  background: 
-    linear-gradient(to top, rgba(0,0,0, 0.9), transparent),
-    linear-gradient(to bottom, rgba(0,0,0, 0.9), transparent);
+  /* background: 
+    linear-gradient(to left, rgba(0,0,0, 1), transparent),
+    linear-gradient(to right, rgba(0,0,0, 1), transparent); */
     /* url(${props => props.bgimg}); */
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: cover; */
   padding: 50px 20px;
   @media only screen and (${minDevices.lg}) {
     padding: 50px 100px;

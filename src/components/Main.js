@@ -9,24 +9,6 @@ import { menuProducts } from './menuItem/MenuItemsContext'
 import { StyledMenuSection } from './menuItem/SpecialtyMenu.styles'
 import TwoColScGradient from './twoColScGradient/TwoColScGradient'
 import CarouselSlideIndex from './carousel/CarouselSlideIndex'
-import { styled } from 'styled-components'
-import coffeeOnTable from '../assets/coffee_on_table.jpg'
-
-const StyledImg = styled.img`
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  
-`
-
-const StyledMain = styled.main`
-  background: 
-    linear-gradient(to top, rgba(0,0,0, 0.9), transparent),
-    linear-gradient(to bottom, rgba(0,0,0, 0.9), transparent);
-`
 
 const breakPoints = () => {
   const browserWidth = window.innerWidth;
@@ -42,9 +24,8 @@ const breakPoints = () => {
 
 function Main() {
   return (
-    <StyledMain>
+    <main>
       {/* <Carousel /> */}
-      <StyledImg src={coffeeOnTable} />
       <CarouselSlideIndex slidesshown={breakPoints()}/>
       <TwoColScGradient />
       <StyledSection className='flex-column'>
@@ -58,7 +39,7 @@ function Main() {
           </MenuItems.Provider>
         </StyledMenuSection>
       </StyledSection>
-    </StyledMain>
+    </main>
   )
 }
 
