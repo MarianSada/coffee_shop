@@ -1,6 +1,6 @@
 import React from 'react';
+import GlobalStyles from './styles/globalStyles';
 import Index from './screens/index/Index'
-import './styles/BaseStyles.css'
 import MyProfile from './screens/myProfile/MyProfile'
 import Login from './screens/login/Login'
 import Register from './screens/register/Register'
@@ -10,6 +10,7 @@ import { Routes, Route } from 'react-router-dom'
 function App() {
   return (
     <>
+      <GlobalStyles />
       <Routes>
         <Route path='/' element={<Index />}/>
         <Route path='/myprofile' element={<MyProfile />}/>

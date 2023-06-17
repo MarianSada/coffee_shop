@@ -9,8 +9,8 @@ export default function Navbar() {
 
   return (
     <nav>
-      <StyledHamburger>
-        <Hamburger color="#B97046" onToggle={() => setOpen(!open)}/>
+      <StyledHamburger >
+        <Hamburger color="#B97046" onToggle={() => setOpen(prevState => !prevState)}/>
       </StyledHamburger>
       <StyledNavbar open={open}>
         <CustomLink to='/coffee_shop/'>Home</CustomLink>

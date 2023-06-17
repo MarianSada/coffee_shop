@@ -1,6 +1,3 @@
-// root {
-//   --primary-color: #B97046;
-// }
 import { createTheme } from "@mui/material/styles";
 
 export const customTheme = createTheme({
