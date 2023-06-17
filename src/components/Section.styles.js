@@ -14,6 +14,6 @@ export const StyledSection = styled.section`
   -webkit-flex-wrap: wrap;
   padding: 50px 20px;
   @media only screen and (${minDevices.lg}) {
-    padding: 50px 100px;
+    padding: 100px 100px;
   }
 `

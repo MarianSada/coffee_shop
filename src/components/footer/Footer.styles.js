@@ -7,13 +7,13 @@ export const StyledFooter = styled.footer`
   -webkit-flex-direction: column;
   position: relative;
   overflow: hidden;
-  /* background: 
+  background: 
     linear-gradient(to left, rgba(0,0,0, 1), transparent),
-    linear-gradient(to right, rgba(0,0,0, 1), transparent); */
-    /* url(${props => props.bgimg}); */
-  /* background-repeat: no-repeat;
+    linear-gradient(to right, rgba(0,0,0, 1), transparent),
+    url(${props => props.bgimg});
+    background-repeat: no-repeat;
   background-position: center;
-  background-size: cover; */
+  background-size: cover;
   padding: 50px 20px;
   @media only screen and (${minDevices.lg}) {
     padding: 50px 100px;
@@ -36,10 +36,6 @@ export const StyledFooterRow = styled.div`
       flex-direction: row;
       -webkit-flex-direction: row;
       min-width: 100%;
-    }
-    &:first-of-type {
-      border-top: 1px solid #B97046;
-      padding-top: 30px;
     }
 
   @media only screen and (${minDevices.lg}) {

@@ -31,8 +31,10 @@ function Footer() {
       <StyledFooterRow display="true">
         <Logo />
       </StyledFooterRow>
-      <StyledFooterRow display="true">
-        <p >Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam quis quam.</p>
+      <StyledFooterRow >
+        <StyledFooterRow display="true">
+          <p >Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam quis quam.</p>
+        </StyledFooterRow>
         <StyledSocialBar />
       </StyledFooterRow>
       <StyledFooterRow> 
