@@ -6,6 +6,10 @@ import Login from './screens/login/Login'
 import Register from './screens/register/Register'
 import ForgotPassword from './screens/forgotPassword/ForgotPassword'
 import { Routes, Route } from 'react-router-dom'
+import Menu from './screens/menu/Menu'
+import Reservation from './screens/reservation/Reservation'
+import Shop from './screens/shop/Shop'
+import Contact from './screens/contact/Contact'
 
 function App() {
   return (
@@ -13,6 +17,11 @@ function App() {
       <GlobalStyles />
       <Routes>
         <Route path='/' element={<Index />}/>
+        <Route path='/menu' element={<Menu />}/>
+        <Route path='/reservation' element={<Reservation />}/>
+        <Route path='/shop' element={<Shop />}/>
+        <Route path='/contact' element={<Contact />}/>
+        <Route path='/login' element={<Login />}/>
         <Route path='/myprofile' element={<MyProfile />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/register' element={<Register />}/>
