@@ -12,7 +12,7 @@ function Subscribe() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    isValid && alert("success") ;
+    isValid === "true" ? alert("success") : alert("insert a valid email") ;
   }
   
   const handleChange = (e) => {

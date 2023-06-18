@@ -6,6 +6,7 @@ import { StyledHamburger } from './Hamburger.styles'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  // useContext pentru state
 
   return (
     <nav>

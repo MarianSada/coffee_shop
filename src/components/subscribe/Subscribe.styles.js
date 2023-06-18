@@ -17,7 +17,7 @@ export const Input = styled.input`
   }
   &:focus {
     outline: none;
-    border: 1px solid ${props => props.validation ? "green" : "red"};
+    border: 1px solid ${props => props.validation === "true" ? "green" : "red"};
     border-radius: 5px;
   }
   @media only screen and (${minDevices.lg}) {

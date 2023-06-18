@@ -4,11 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { config } from './constants/Constants'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+console.log(config.url.API_URL)
+console.log(process.env.NODE_ENV)
+
 root.render(
   // <React.StrictMode>
-    <BrowserRouter basename='/coffee_shop'>
+    <BrowserRouter basename={config.url.API_URL}>
       <App />
     </BrowserRouter>
   // </React.StrictMode>
