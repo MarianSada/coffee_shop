@@ -7,13 +7,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { config } from './constants/Constants'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-console.log(config.url.API_URL)
-console.log(process.env.NODE_ENV)
-
 root.render(
   // <React.StrictMode>
-    <BrowserRouter basename={config.url.API_URL}>
+    <BrowserRouter basename='/coffee_shop'>
       <App />
     </BrowserRouter>
   // </React.StrictMode>
