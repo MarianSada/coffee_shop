@@ -27,7 +27,6 @@ export const StyledStrenghtsTile = styled.div`
   margin-left: var(--carouselRow-gap);
   &:first-child {
     margin-left: 0;
-    animation-duration: none;
   }
 `
 

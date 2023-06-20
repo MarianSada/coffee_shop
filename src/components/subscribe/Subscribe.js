@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import Btn from '../Btn'
 import { ThemeProvider } from '@mui/material/styles'
 import { customTheme } from '../../styles/Themes'
-import { Input, StyledSubscriptionForm } from './Subscribe.styles'
+import { StyledSubscriptionForm } from './Subscribe.styles'
+import { Input } from '../inputField/InputField.styles'
 
 function Subscribe() {
 
@@ -11,8 +12,8 @@ function Subscribe() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    isValid === "true" ? alert("success") : alert("insert a valid email") ;
+
+    isValid ? alert("success") : alert("insert a valid email") ;
   }
   
   const handleChange = (e) => {
