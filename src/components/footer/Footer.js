@@ -8,7 +8,7 @@ import Btn from '../Btn'
 import { ThemeProvider } from '@mui/material/styles'
 import { customTheme } from '../../styles/Themes'
 import { StyledFooter, StyledFooterRow, StyledFooterElement } from './Footer.styles'
-import StyledSocialBar from '../socialMedia/SocialMedia'
+import SocialMedia from '../socialMedia/SocialMedia'
 
 function Footer() {
 
@@ -35,7 +35,7 @@ function Footer() {
         <StyledFooterRow display="true">
           <p >Donec et nibh maximus, congue est eu, mattis nunc. Praesent ut quam quis quam.</p>
         </StyledFooterRow>
-        <StyledSocialBar />
+        <SocialMedia />
       </StyledFooterRow>
       <StyledFooterRow> 
         <NavBar/>

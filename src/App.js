@@ -2,9 +2,9 @@ import React from 'react';
 import GlobalStyles from './styles/globalStyles';
 import Index from './screens/index/Index'
 import MyProfile from './screens/myProfile/MyProfile'
-import Login from './screens/login/Login'
-import Register from './screens/register/Register'
-import ForgotPassword from './screens/forgotPassword/ForgotPassword'
+import Login from './screens/userAuthentication/login/Login'
+import Register from './screens/userAuthentication/register/Register'
+import ForgotPassword from './screens/userAuthentication/forgotPassword/ForgotPassword'
 import { Routes, Route } from 'react-router-dom'
 import Menu from './screens/menu/Menu'
 import Reservation from './screens/reservation/Reservation'

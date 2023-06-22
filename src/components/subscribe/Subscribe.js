@@ -3,7 +3,7 @@ import Btn from '../Btn'
 import { ThemeProvider } from '@mui/material/styles'
 import { customTheme } from '../../styles/Themes'
 import { StyledSubscriptionForm } from './Subscribe.styles'
-import { Input } from '../inputField/InputField.styles'
+import { Input } from './Subscribe.styles'
 
 function Subscribe() {
 
