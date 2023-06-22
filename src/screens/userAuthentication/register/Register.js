@@ -9,20 +9,30 @@ import { Link } from 'react-router-dom'
 import CoffeVan from '../../../assets/coffee_van.jpeg'
 import SocialMedia from '../../../components/socialMedia/SocialMedia'
 
-const inputFieldValidation = {
+const validationRules = {
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   password: /^(?=.*\d).{8,}$/,
-  firstName: "",
-  lastName: "",
-  address: "",
+  retypePassword: "",
+  firstName: /^.{3,}$/,
+  lastName: /^.{3,}$/,
 }
 
 function Login() {
+  // const navigate = useNavigate();  --->> don't forget to import useNavigate when finished
 
-  const [isValid, setIsValid] = useState('false');
+  const [isValid, setIsValid] = useState({
+    email: "false",
+    password: "false",
+    retypePassword: "false",
+    firstName: "false",
+    lastName: "false",
+  });
   const [formField, setFormField] = useState({
     email: '',
     password: '',
+    retypePassword: '',
+    firstName: '',
+    lastName: '',
   });
 
   const handleInputChange = (e) => {
@@ -35,15 +45,26 @@ function Login() {
   }
 
   const handleValidation = (e) => {
-    const validation = inputFieldValidation[e.target.name].test(e.target.value);
+    let validation;
 
-    setIsValid(validation)
+    if (e.target.name === "retypePassword") {
+      validation = formField.password === e.target.value;
+    } else {
+      validation = validationRules[e.target.name].test(e.target.value);
+    }
+
+    setIsValid((prev=> ({
+      ...prev, 
+      [e.target.name]: validation.toString()})))
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const isFormValid = Object.values(isValid).every((value) => value === "true");
+
+    isFormValid ? alert("success") /*navigate('/')*/ : alert("Complete all form fields") ;
     
-    isValid ? alert("success") : alert("insert a valid email") ;
   }
 
   return (
@@ -61,7 +82,7 @@ function Login() {
                   value={formField.firstName}
                   placeholder="Enter your first name" 
                   type="text"
-                  validation={isValid.toString()}
+                  validation={isValid.firstName.toString()}
                 />
               </label>
               <label>
@@ -72,7 +93,7 @@ function Login() {
                   value={formField.lastName}
                   placeholder="Enter your last name" 
                   type="text"
-                  validation={isValid.toString()}
+                  validation={isValid.lastName.toString()}
                 />
               </label>
               <label>
@@ -83,7 +104,7 @@ function Login() {
                   value={formField.email}
                   placeholder="Enter your email" 
                   type="email"
-                  validation={isValid.toString()}
+                  validation={isValid.email.toString()}
                 />
               </label>
               <label>
@@ -94,30 +115,30 @@ function Login() {
                   value={formField.password}
                   placeholder="Enter your password" 
                   type="password"
-                  validation={isValid.toString()}
+                  validation={isValid.password.toString()}
                 />
               </label>
               <label>
                 Re-type Password
                 <Input
-                  name='password'
+                  name='retypePassword'
                   onChange={handleInputChange}
-                  value={formField.password}
+                  value={formField.retypePassword}
                   placeholder="Re-type your password" 
                   type="password"
-                  validation={isValid.toString()}
+                  validation={isValid.retypePassword.toString()}
+                  // validation={(formField.password === formField.retypePassword).toString()}
                 />
               </label>
                 <ThemeProvider theme={customTheme}>
-                  <Link to="/">
-                    <Btn 
-                      color="primary" 
-                      variant="contained" 
-                      size="large"
-                    >
-                      Register
-                    </Btn>
-                  </Link>
+                  <Btn 
+                    color="primary" 
+                    variant="contained" 
+                    size="large"
+                    type="submit"
+                  >
+                    Register
+                  </Btn>
                 </ThemeProvider> 
             </Form>
             <StyledRegisterSpan>

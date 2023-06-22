@@ -3,6 +3,7 @@ import { minDevices } from '../breakpoints/Breakpoints'
 
 export const StyledNavbar = styled.ul`
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     -webkit-flex-direction: column;
     font-size: 1.25rem;
@@ -28,7 +29,7 @@ export const StyledNavbar = styled.ul`
       margin-left: 20px;
       margin-top: 0;
       &:first-child {
-        margin-left: -40px;
+        margin-left: -20px;
       }
     }
   }

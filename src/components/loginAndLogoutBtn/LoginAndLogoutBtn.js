@@ -5,11 +5,11 @@ import { customTheme } from '../../styles/Themes'
 import { Link } from 'react-router-dom'
 
 
-function LoginAndProfileBtn({isLoggedIn}) {
+function LoginAndLogoutBtn({isLoggedIn}) {
 
   let loginStatus = {
-    conditionalPath: isLoggedIn ? '/myprofile' : '/login',
-    btnText: `${isLoggedIn ? 'My Profile' : 'Login'}`,
+    conditionalPath: isLoggedIn ? '/' : '/login',
+    btnText: `${isLoggedIn ? 'Logout' : 'Login'}`,
   }
 
   return (
@@ -28,4 +28,4 @@ function LoginAndProfileBtn({isLoggedIn}) {
   )
 }
 
-export default LoginAndProfileBtn
+export default LoginAndLogoutBtn
