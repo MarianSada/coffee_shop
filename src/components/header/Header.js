@@ -21,7 +21,7 @@ const StyledProfileBtnsWrapper = styled.div`
 function Header() {
 
   // const [isLoggedIn, setIsLoggedIn] = useState(false); ------>>>> import useState if needed again
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   return (
     <StyledHeader>
