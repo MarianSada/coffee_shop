@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../../../components/header/Header'
 import Footer from '../../../components/footer/Footer'
 import { SectionForm, Form, Input, StyledRegisterSpan, Main, StyledSectionWelcome, WelcomeCard } from '../UserAuthentication.styles'
 import Btn from '../../../components/Btn'
 import { ThemeProvider } from '@mui/material/styles'
 import { customTheme } from '../../../styles/Themes'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import CoffeVan from '../../../assets/coffee_van.jpeg'
 import SocialMedia from '../../../components/socialMedia/SocialMedia'
 
@@ -18,7 +18,7 @@ const validationRules = {
 }
 
 function Login() {
-  // const navigate = useNavigate();  --->> don't forget to import useNavigate when finished
+  const navigate = useNavigate(); 
 
   const [isValid, setIsValid] = useState({
     email: "false",
@@ -34,6 +34,7 @@ function Login() {
     firstName: '',
     lastName: '',
   });
+  const [submitRequested, setSubmitRequested] = useState(false)
 
   const handleInputChange = (e) => {
 
@@ -53,7 +54,7 @@ function Login() {
       validation = validationRules[e.target.name].test(e.target.value);
     }
 
-    setIsValid((prev=> ({
+    setIsValid((prev => ({
       ...prev, 
       [e.target.name]: validation.toString()})))
   }
@@ -63,9 +64,41 @@ function Login() {
 
     const isFormValid = Object.values(isValid).every((value) => value === "true");
 
+    setSubmitRequested(true)
+
     isFormValid ? alert("success") /*navigate('/')*/ : alert("Complete all form fields") ;
     
+    setTimeout(() => {
+      navigate("/login");
+    }, 500);
   }
+  
+  function getFromLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key))
+  }
+
+  function setToLocalStorage(key, data) {
+    localStorage.setItem(key, JSON.stringify(data))
+  }
+
+  function updateLocateStorage(key, data) {
+    let existingData = getFromLocalStorage(key) || {};
+    let newData = null;
+
+    if (typeof existingData == 'object') {
+      newData = {...existingData, ...data}
+    } else {
+      newData = [...existingData, ...data]
+    }
+    setToLocalStorage(key, newData)
+  }
+
+  useEffect(() => {
+    if(submitRequested)
+    updateLocateStorage('users', {
+      [formField.email]: formField
+    });
+  }, [submitRequested]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
