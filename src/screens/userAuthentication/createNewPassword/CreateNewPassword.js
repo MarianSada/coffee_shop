@@ -5,36 +5,36 @@ import { SectionForm, Form, Input, StyledRegisterSpan, Main, StyledSectionWelcom
 import Btn from '../../../components/Btn'
 import { ThemeProvider } from '@mui/material/styles'
 import { customTheme } from '../../../styles/Themes'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import CoffeVan from '../../../assets/coffee_van.jpeg'
 import SocialMedia from '../../../components/socialMedia/SocialMedia'
 
 const fieldValidationRules = {
-  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   password: /^(?=.*\d).{8,}$/,
   retypePassword: "",
-  firstName: /^.{3,}$/,
-  lastName: /^.{3,}$/,
 }
 
-function Login() {
-  const navigate = useNavigate(); 
+function CreateNewpassword() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const { email } = location.state || {};
+  const emailValue = email ? email.email : '';
 
   const [isValid, setIsValid] = useState({
-    email: "false",
     password: "false",
     retypePassword: "false",
-    firstName: "false",
-    lastName: "false",
   });
   const [formField, setFormField] = useState({
-    email: '',
     password: '',
     retypePassword: '',
-    firstName: '',
-    lastName: '',
   });
-  const [submitRequested, setSubmitRequested] = useState(false)
+
+  // const [storedUserData, setStoredUserData] = useState({})
+
+  // useEffect(() => {
+  //   setStoredUserData(JSON.parse(localStorage.getItem("users")));
+  // }, [])
 
   const handleInputChange = (e) => {
 
@@ -59,20 +59,6 @@ function Login() {
       [e.target.name]: validation.toString()})))
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const isFormValid = Object.values(isValid).every((value) => value === "true");
-
-    setSubmitRequested(true)
-
-    isFormValid ? alert("success") /*navigate('/')*/ : alert("Complete all form fields") ;
-    
-    setTimeout(() => {
-      navigate("/login");
-    }, 500);
-  }
-  
   function getFromLocalStorage(key) {
     return JSON.parse(localStorage.getItem(key))
   }
@@ -85,20 +71,28 @@ function Login() {
     let existingData = getFromLocalStorage(key) || {};
     let newData = null;
 
+    existingData[emailValue].password = formField.password
+
     if (typeof existingData == 'object') {
-      newData = {...existingData, ...data}
+      newData = {...existingData}
     } else {
-      newData = [...existingData, ...data]
+      newData = [...existingData]
     }
     setToLocalStorage(key, newData)
   }
 
-  useEffect(() => {
-    if(submitRequested)
-    updateLocateStorage('users', {
-      [formField.email]: formField
-    });
-  }, [submitRequested]) // eslint-disable-line react-hooks/exhaustive-deps
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if(isValid) {
+      updateLocateStorage('users');
+      alert("success")
+      navigate('/login')
+      
+    } else {
+      alert("insert a valid email") ;
+    }   
+  }
 
   return (
     <>
@@ -106,53 +100,29 @@ function Login() {
         <Main >
           <SectionForm >
             <Form onSubmit={handleSubmit}>
-              <h1>Register</h1>
-              <label>
-                First Name
-                <Input 
-                  name='firstName'
-                  onChange={handleInputChange}
-                  value={formField.firstName}
-                  placeholder="Enter your first name" 
-                  type="text"
-                  validation={isValid.firstName.toString()}
-                />
-              </label>
-              <label>
-                Last Name
-                <Input 
-                  name='lastName'
-                  onChange={handleInputChange}
-                  value={formField.lastName}
-                  placeholder="Enter your last name" 
-                  type="text"
-                  validation={isValid.lastName.toString()}
-                />
-              </label>
+              <h1>Create new password</h1>
               <label>
                 Email
                 <Input 
                   name='email'
-                  onChange={handleInputChange}
-                  value={formField.email}
-                  placeholder="Enter your email" 
+                  value={emailValue}
                   type="email"
-                  validation={isValid.email.toString()}
+                  disabled
                 />
               </label>
               <label>
-                Password
+                New Password
                 <Input
                   name='password'
                   onChange={handleInputChange}
                   value={formField.password}
-                  placeholder="Enter your password" 
+                  placeholder="Enter your new password" 
                   type="password"
                   validation={isValid.password.toString()}
                 />
               </label>
               <label>
-                Re-type Password
+                Re-type New Password
                 <Input
                   name='retypePassword'
                   onChange={handleInputChange}
@@ -163,18 +133,21 @@ function Login() {
                 />
               </label>
                 <ThemeProvider theme={customTheme}>
-                  <Btn 
-                    color="primary" 
-                    variant="contained" 
-                    size="large"
-                    type="submit"
-                  >
-                    Register
-                  </Btn>
+                    <Btn 
+                      color="primary" 
+                      variant="contained" 
+                      size="large"
+                      type="submit"
+                    >
+                      Reset password
+                    </Btn>
                 </ThemeProvider> 
             </Form>
             <StyledRegisterSpan>
-                Already have an account? <Link to="/login">Login</Link>
+                Don't have an account? <Link to="/register">Register</Link>
+            </StyledRegisterSpan>
+            <StyledRegisterSpan>
+                Remembered your password? <Link to="/login">Login</Link>
             </StyledRegisterSpan>
           </SectionForm>
           <StyledSectionWelcome >
@@ -191,4 +164,4 @@ function Login() {
   )
 }
 
-export default Login
+export default CreateNewpassword

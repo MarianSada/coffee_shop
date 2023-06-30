@@ -2,6 +2,7 @@ import { styled } from 'styled-components'
 import { minDevices } from '../breakpoints/Breakpoints'
 
 export const StyledHeader = styled.header`
+  height: 100px;
   display: flex;
   justify-content: space-between;
   -webkit-justify-content: space-between;
@@ -19,19 +20,13 @@ export const StyledProfileBtnsWrapper = styled.div`
   align-items: center;
   -webkit-align-items: center;
   a {
-      &:last-child {
-        display: none;
-      }
+      display: none;
     }
 
   @media only screen and (${minDevices.lg}) {
     a {
-      &:first-child {
-        margin-right: 20px;
-      }
-      &:last-child {
         display: flex;
-      }
+        margin-right: 20px;
     }
   }
 `

@@ -4,9 +4,8 @@ import { StyledNavbar } from './NavBar.styles'
 import { Squash as Hamburger } from 'hamburger-react'
 import { StyledHamburger } from './Hamburger.styles'
 
-export default function Navbar() {
+export default function Navbar({loginstatus}) {
   const [open, setOpen] = useState(false)
-  // useContext pentru state
 
   return (
     <nav>
@@ -19,6 +18,9 @@ export default function Navbar() {
         <CustomLink to='/reservation'>Reservation</CustomLink>
         <CustomLink to='/shop'>Shop</CustomLink>
         <CustomLink to='/contact'>Contact</CustomLink>
+        {
+          open && <CustomLink to={loginstatus ? "/myprofile" : "/login"}>My Profile</CustomLink>
+        }
       </StyledNavbar>
     </nav>
   )

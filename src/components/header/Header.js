@@ -14,14 +14,12 @@ function Header() {
 
   const [isLoggedIn, setIsLoggedIn] = useState("");
 
-  // console.log('isLoggedIn din HEADER: ', isLoggedIn)
-
   return (
     <StyledHeader>
       <Link to='/'>
         <Logo />
       </Link>
-      <Navbar />
+      <Navbar loginstatus={isLoggedIn}/>
       <StyledProfileBtnsWrapper>
         <Link to={isLoggedIn ? "/myprofile" : "/login"}>
           <FaUserCircle size={50}/>

@@ -1,33 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../../../components/header/Header'
 import Footer from '../../../components/footer/Footer'
 import { SectionForm, Form, Input, StyledRegisterSpan, Main, StyledSectionWelcome, WelcomeCard } from '../UserAuthentication.styles'
 import Btn from '../../../components/Btn'
 import { ThemeProvider } from '@mui/material/styles'
 import { customTheme } from '../../../styles/Themes'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import CoffeVan from '../../../assets/coffee_van.jpeg'
 import SocialMedia from '../../../components/socialMedia/SocialMedia'
 
-const inputFieldValidation = {
+const fieldValidationRules = {
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-  password: /^(?=.*\d).{8,}$/,
-  firstName: "",
-  lastName: "",
-  address: "",
 }
 
-function Login() {
+function ResetPassword() {
+  const navigate = useNavigate();
 
   const [isValid, setIsValid] = useState('false');
-  const [formField, setFormField] = useState({
+  const [email, setEmail] = useState({
     email: '',
-    password: '',
   });
+
+  const [storedUserData, setStoredUserData] = useState({})
+
+  useEffect(() => {
+    setStoredUserData(JSON.parse(localStorage.getItem("users")));
+  }, [])
+
+  function userValidation() {
+    const checkEmail = email.email;
+
+    const userNameExists = storedUserData.hasOwnProperty(checkEmail);
+    
+    const userExists = userNameExists ? true : false;
+    return userExists
+  }
 
   const handleInputChange = (e) => {
 
-    setFormField(prev=> ({
+    setEmail(prev=> ({
       ...prev, 
       [e.target.name]: e.target.value}))
     
@@ -35,15 +46,21 @@ function Login() {
   }
 
   const handleValidation = (e) => {
-    const validation = inputFieldValidation[e.target.name].test(e.target.value);
-
+    const validation = fieldValidationRules[e.target.name].test(e.target.value);
     setIsValid(validation)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    isValid ? alert("success") : alert("insert a valid email") ;
+    if(isValid && userValidation()) {
+
+      alert("success")
+      navigate('/createnewpassword', { state: { email } })
+      
+    } else {
+      alert("insert a valid email") ;
+    }   
   }
 
   return (
@@ -58,22 +75,21 @@ function Login() {
                 <Input 
                   name='email'
                   onChange={handleInputChange}
-                  value={formField.email}
+                  value={email.email}
                   placeholder="Enter your email" 
                   type="email"
                   validation={isValid.toString()}
                 />
               </label>
                 <ThemeProvider theme={customTheme}>
-                  <Link to="/">
                     <Btn 
                       color="primary" 
                       variant="contained" 
                       size="large"
+                      type="submit"
                     >
                       Reset password
                     </Btn>
-                  </Link>
                 </ThemeProvider> 
             </Form>
             <StyledRegisterSpan>
@@ -97,4 +113,4 @@ function Login() {
   )
 }
 
-export default Login
+export default ResetPassword

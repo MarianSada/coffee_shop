@@ -10,6 +10,7 @@ import Menu from './screens/menu/Menu'
 import Reservation from './screens/reservation/Reservation'
 import Shop from './screens/shop/Shop'
 import Contact from './screens/contact/Contact'
+import CreateNewpassword from './screens/userAuthentication/createNewPassword/CreateNewPassword';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/login' element={<Login />}/>
         <Route path='/register' element={<Register />}/>
         <Route path='/forgot-password' element={<ForgotPassword />}/>
+        <Route path='/createnewpassword' element={<CreateNewpassword />}/>
       </Routes>
     </>
   );
