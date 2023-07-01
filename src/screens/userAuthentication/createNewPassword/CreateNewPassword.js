@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Header from '../../../components/header/Header'
 import Footer from '../../../components/footer/Footer'
 import { SectionForm, Form, Input, StyledRegisterSpan, Main, StyledSectionWelcome, WelcomeCard } from '../UserAuthentication.styles'
@@ -29,12 +29,6 @@ function CreateNewpassword() {
     password: '',
     retypePassword: '',
   });
-
-  // const [storedUserData, setStoredUserData] = useState({})
-
-  // useEffect(() => {
-  //   setStoredUserData(JSON.parse(localStorage.getItem("users")));
-  // }, [])
 
   const handleInputChange = (e) => {
 
@@ -90,7 +84,7 @@ function CreateNewpassword() {
       navigate('/login')
       
     } else {
-      alert("insert a valid email") ;
+      alert("insert a valid password") ;
     }   
   }
 

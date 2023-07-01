@@ -66,7 +66,7 @@ function Login() {
 
     setSubmitRequested(true)
 
-    isFormValid ? alert("success") /*navigate('/')*/ : alert("Complete all form fields") ;
+    isFormValid ? alert("success") : alert("Complete all form fields") ;
     
     setTimeout(() => {
       navigate("/login");
