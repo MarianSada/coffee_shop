@@ -9,6 +9,9 @@ import { customTheme } from '../../styles/Themes'
 import { v4 as uuidv4 } from 'uuid';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { DatePicker, TimePicker } from '@mui/x-date-pickers'
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 const FormWrapper = styled.div`
   display: flex;
@@ -247,6 +250,12 @@ function Reservation() {
             type='text'
             validation={isValid.seats.toString()}
           />
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker />
+            </LocalizationProvider>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <TimePicker />
+          </LocalizationProvider>
           <Input
             name="date"
             onChange={handleInputChange}
