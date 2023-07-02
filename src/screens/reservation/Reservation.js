@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 import { styled } from 'styled-components'
@@ -7,6 +7,8 @@ import Btn from '../../components/Btn'
 import { ThemeProvider } from '@mui/material/styles'
 import { customTheme } from '../../styles/Themes'
 import { v4 as uuidv4 } from 'uuid';
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
 
 const FormWrapper = styled.div`
   display: flex;
@@ -32,7 +34,7 @@ const Form = styled.form`
 export const Input = styled.input`
   width: 100%;
   padding: 20px;
-  margin: 10px 20px 30px 0;
+  margin: 10px 0 30px;
   border: none;
   border-bottom: 1px solid #fff;
   background-color: rgba(256, 256, 256, 0.1);
@@ -44,6 +46,7 @@ export const Input = styled.input`
   }
   @media only screen and (${minDevices.lg}) {
     width: 40%;
+    margin: 10px 20px 30px 0;
   }
 `
 
@@ -52,8 +55,8 @@ const fieldValidationRules = {
   name: /^.{3,}$/,
   phone: /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
   seats: /^(?:[1-9]|10)$/,
-  date: /^\d{4}-\d{2}-\d{2}$/,
-  hour: /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/,
+  date: /^(0[1-9]|[1-2][0-9]|3[0-1])-(0[1-9]|1[0-2])-\d{4}$/,
+  hour: /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/,
 }
 
 function Reservation() {
@@ -144,6 +147,74 @@ function Reservation() {
     }
   }, [submitRequested]) // eslint-disable-line react-hooks/exhaustive-deps
 
+  function handleDateValidation(selectedDate) {
+      let validation = fieldValidationRules.date.test(selectedDate);
+    
+      setIsValid((prev) => ({
+        ...prev,
+        date: validation.toString(),
+      }));
+  }
+
+  function handleHourValidation(selectedDate) {
+    let validation = fieldValidationRules.date.test(selectedDate);
+  
+    setIsValid((prev) => ({
+      ...prev,
+      hour: validation.toString(),
+    }));
+}
+
+  const datePickerRef = useRef(null);
+  const hourInputRef = useRef(null);
+
+  console.log(formField.hour)
+
+  useEffect(() => {
+    const flatpickrInstance = flatpickr(datePickerRef.current, {
+      enableTime: false,
+      dateFormat: "d/m/Y",
+      onChange: (selectedDates) => {
+        const newSelectedDate = selectedDates[0];
+        const formattedDate = newSelectedDate.toLocaleDateString('ro-RO', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+        }).replace(/\./g, '-');
+        setFormField((prev) => ({
+          ...prev,
+          [datePickerRef.current.name]: formattedDate,
+        }));
+        handleDateValidation(formattedDate);
+      },
+    });
+
+    const hourInputInstance = flatpickr(hourInputRef.current, {
+      enableTime: true,
+      noCalendar: true,
+      dateFormat: "H:i",
+      time_24hr: true,
+      onChange: (selectedHours) => {
+        const selectedHour = selectedHours[0];
+        const formattedHour = selectedHour.toLocaleTimeString("ro-RO", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        });
+        setFormField((prev) => ({
+          ...prev,
+          [hourInputRef.current.name]: formattedHour,
+        }));
+        handleHourValidation(formattedHour)
+      },
+    });
+
+    return () => {
+      flatpickrInstance.destroy();
+      hourInputInstance.destroy();
+    };
+  }, []);
+
   return (
     <>
       <Header />
@@ -178,17 +249,21 @@ function Reservation() {
             name="date"
             onChange={handleInputChange}
             value={formField.date}
-            type='date'
-            min={new Date().toISOString().split("T")[0]}
-            max="2024-12-31"
+            type='text'
+            ref={datePickerRef}
+            className="flatpickr"
+            placeholder='Select your date'
+            // min={new Date().toISOString().split("T")[0]}
+            // max="2024-12-31"
             validation={isValid.date.toString()}
           />
           <Input
             name="hour"
             onChange={handleInputChange}
             value={formField.hour}
-            placeholder='Enter your hour'
-            type='time'
+            placeholder='Select your hour'
+            type='text'
+            ref={hourInputRef}
             validation={isValid.hour.toString()}
           />
           <Input
