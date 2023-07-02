@@ -187,6 +187,7 @@ function Reservation() {
         }));
         handleDateValidation(formattedDate);
       },
+      disableMobile: true,
     });
 
     const hourInputInstance = flatpickr(hourInputRef.current, {
@@ -207,6 +208,7 @@ function Reservation() {
         }));
         handleHourValidation(formattedHour)
       },
+      disableMobile: true,
     });
 
     return () => {
