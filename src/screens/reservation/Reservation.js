@@ -1,57 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
-import { styled } from 'styled-components'
-import { minDevices } from '../../components/breakpoints/Breakpoints'
+import { FormWrapper, Form, Input } from './Reservation.styles'
 import Btn from '../../components/Btn'
 import { ThemeProvider } from '@mui/material/styles'
 import { customTheme } from '../../styles/Themes'
 import { v4 as uuidv4 } from 'uuid';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
-import { DatePicker, TimePicker } from '@mui/x-date-pickers'
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-
-const FormWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  -webkit-align-items: center;
-  margin: 100px auto;
-  width: 80%;
-  border: 1px solid white;
-  padding: 50px 0;
-`
-
-const Form = styled.form`
-  width: 100%;
-  padding: 0 20px;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  justify-content: center;
-  -webkit-justify-content: center;
-`
-
-export const Input = styled.input`
-  width: 100%;
-  padding: 20px;
-  margin: 10px 0 30px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  background-color: rgba(256, 256, 256, 0.1);
-  color: #fff;
-  &:focus {
-    outline: none;
-    border: 1px solid ${props => props.validation === "true" ? "green" : "red"};
-    border-radius: 5px;
-  }
-  @media only screen and (${minDevices.lg}) {
-    width: 40%;
-    margin: 10px 20px 30px 0;
-  }
-`
+import { useNavigate } from 'react-router-dom'
 
 const fieldValidationRules = {
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -59,18 +16,19 @@ const fieldValidationRules = {
   phone: /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
   seats: /^(?:[1-9]|10)$/,
   date: /^(0[1-9]|[1-2][0-9]|3[0-1])-(0[1-9]|1[0-2])-\d{4}$/,
-  hour: /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/,
+  hour: /^[0-2][0-3]:[0-5][0-9]$/,
 }
 
 function Reservation() {
+  const navigate = useNavigate();
 
   const [isValid, setIsValid] = useState({
-    email: "false",
-    name: "false",
-    phone: "false",
-    seats: "false",
-    date: "false",
-    hour: "false"
+    email: false,
+    name: false,
+    phone: false,
+    seats: false,
+    date: false,
+    hour: false
   });
   const [formField, setFormField] = useState({
     email: "",
@@ -103,15 +61,18 @@ function Reservation() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setSubmitRequested(true);
-
     const isFormValid = Object.values(isValid).every((value) => value === "true");
     
-    isFormValid ? alert("success") : alert("Complete all form fields") ;
+    if(isFormValid) {
+      alert(`Please check your email for confirmation. Your reservation ID is: ${uuid}`)
+      setSubmitRequested(true);
+      setTimeout(() => {
+        navigate("/");
+      }, 0);
+    } else {
+      alert("Complete all form fields") ;
+    } 
     
-    // setTimeout(() => {
-    //   navigate("/login");
-    // }, 500);
   }
 
   function getFromLocalStorage(key) {
@@ -159,8 +120,8 @@ function Reservation() {
       }));
   }
 
-  function handleHourValidation(selectedDate) {
-    let validation = fieldValidationRules.date.test(selectedDate);
+  function handleHourValidation(selectedHour) {
+    let validation = fieldValidationRules.hour.test(selectedHour);
   
     setIsValid((prev) => ({
       ...prev,
@@ -170,8 +131,6 @@ function Reservation() {
 
   const datePickerRef = useRef(null);
   const hourInputRef = useRef(null);
-
-  console.log(formField.hour)
 
   useEffect(() => {
     const flatpickrInstance = flatpickr(datePickerRef.current, {
@@ -250,12 +209,6 @@ function Reservation() {
             type='text'
             validation={isValid.seats.toString()}
           />
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DatePicker />
-            </LocalizationProvider>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <TimePicker />
-          </LocalizationProvider>
           <Input
             name="date"
             onChange={handleInputChange}
@@ -264,8 +217,6 @@ function Reservation() {
             ref={datePickerRef}
             className="flatpickr"
             placeholder='Select your date'
-            // min={new Date().toISOString().split("T")[0]}
-            // max="2024-12-31"
             validation={isValid.date.toString()}
           />
           <Input
@@ -292,7 +243,7 @@ function Reservation() {
               size="large"
               type="submit"
             >
-              Register
+              Send reservation
             </Btn>
           </ThemeProvider> 
         </Form>
