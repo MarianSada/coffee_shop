@@ -5,10 +5,12 @@ import { ThemeProvider } from '@mui/material/styles'
 import { customTheme } from '../styles/Themes'
 import MenuItem from './menuItem/MenuItem'
 import { MenuItems } from './menuItem/MenuItemsContext'
-import { menuProducts } from './menuItem/MenuItemsContext'
+import { specialtyMenuProducts } from './menuItem/MenuItemsContext'
 import { StyledMenuSection } from './menuItem/SpecialtyMenu.styles'
 import TwoColScGradient from './twoColScGradient/TwoColScGradient'
 import CarouselSlideIndex from './carousel/CarouselSlideIndex'
+import { Link } from 'react-router-dom'
+
 
 const breakPoints = () => {
   const browserWidth = window.innerWidth;
@@ -28,13 +30,21 @@ function Main() {
       {/* <Carousel /> */}
       <CarouselSlideIndex slidesshown={breakPoints()}/>
       <TwoColScGradient />
-      <StyledSection className='flex-column'>
-        <ThemeProvider theme={customTheme}>
-          <Btn color="primary" size="large" variant="contained">Click me</Btn>
-        </ThemeProvider>
+      <StyledSection>
+        <Link to="/menu" >
+          <ThemeProvider theme={customTheme}>
+            <Btn 
+              color="primary" 
+              size="large" 
+              variant="contained"
+            >
+              See Full Menu
+            </Btn>
+          </ThemeProvider>
+        </Link>
         <h1>La Camionnette Specialty Menu</h1>
         <StyledMenuSection>
-          <MenuItems.Provider value={menuProducts}>
+          <MenuItems.Provider value={specialtyMenuProducts}>
             <MenuItem />
           </MenuItems.Provider>
         </StyledMenuSection>

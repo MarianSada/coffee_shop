@@ -4,6 +4,7 @@ import { minDevices } from '../breakpoints/Breakpoints'
 export const MenuItemWrapper = styled.div`
   display: flex;
   width: 100%;
+  text-align: start;
   justify-content: space-between;
   -webkit-justify-content: space-between;
   border: 1px solid grey;
@@ -11,7 +12,7 @@ export const MenuItemWrapper = styled.div`
   padding: 20px 20px 20px 60px;
   margin-top: 30px;
   @media only screen and (${minDevices.lg}) {
-    width: 40%;
+    width: 45%;
   }
 `
 

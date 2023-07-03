@@ -9,7 +9,6 @@ export const StyledMenuSection = styled.section`
     -webkit-flex-direction: column;
     align-items: center;
     -webkit-align-items: center;
-    text-align: center;
     justify-content: space-between;
     flex-wrap: wrap;
     -webkit-flex-wrap: wrap;

@@ -13,7 +13,11 @@ export const StyledSection = styled.section`
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   padding: 50px 20px;
+  &:not(:first-of-type) {
+      padding-top: 0px;
+    }
   @media only screen and (${minDevices.lg}) {
     padding: 100px 100px;
+
   }
 `
